@@ -8,7 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Carga de AOS CSS para animaciones al desplazar -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Configuración para usar la fuente Inter -->
+    
+    <!-- Configuración para usar la fuente Inter y Estilos Personalizados para Animaciones -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
         body {
@@ -18,6 +19,33 @@
         .header-shadow {
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
+
+        /* ------------------------------------------- */
+        /* Custom Animations for Engagement & Emphasis */
+        /* ------------------------------------------- */
+        
+        /* 1. Continuous Pulse Animation for Primary CTA */
+        @keyframes pulse-green {
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4); }
+            50% { transform: scale(1.03); box-shadow: 0 8px 20px rgba(16, 185, 129, 0.6); }
+        }
+        .cta-pulse {
+            animation: pulse-green 2s infinite ease-in-out;
+        }
+
+        /* 2. Animated Background Gradient for Hero Section */
+        @keyframes bg-move {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .hero-animated-bg {
+            /* Subtle, light gradient using the primary color */
+            background: linear-gradient(-45deg, #f7f7f7, #e0f2f1, #d1f4e5, #f7f7f7);
+            background-size: 400% 400%;
+            animation: bg-move 15s ease infinite;
+        }
+
     </style>
     <script>
         tailwind.config = {
@@ -37,7 +65,7 @@
     <!-- Navegación Fija -->
     <header class="sticky top-0 z-50 bg-white header-shadow">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <a href="#hero" class="text-2xl font-bold text-primary-blue hover:text-green-700 transition duration-300">
+            <a href="#hero" class="text-2xl font-bold text-primary-blue hover:text-green-700 transition duration-300 transform hover:scale-105">
                 ClickNeta
             </a>
             <div class="hidden md:flex space-x-8 font-medium">
@@ -46,8 +74,8 @@
                 <a href="#contacto" class="text-secondary-dark hover:text-primary-blue transition duration-300">Contacto</a>
             </div>
             
-            <!-- Botón de Contacto en Desktop -->
-            <a href="#contacto" class="hidden md:block bg-primary-blue text-white py-2 px-4 rounded-lg font-semibold hover:bg-green-700 transition duration-300 shadow-md">
+            <!-- Botón de Contacto en Desktop (Enhanced hover) -->
+            <a href="#contacto" class="hidden md:block bg-primary-blue text-white py-2 px-4 rounded-lg font-semibold hover:bg-green-700 transition duration-300 shadow-md transform hover:scale-105">
                 Empecemos
             </a>
 
@@ -70,8 +98,8 @@
     </header>
 
     <main>
-        <!-- Sección Principal (Hero) -->
-        <section id="hero" class="bg-gray-50 pt-20 pb-24 sm:pt-32 sm:pb-40">
+        <!-- Sección Principal (Hero) - Now with Animated Background -->
+        <section id="hero" class="hero-animated-bg pt-20 pb-24 sm:pt-32 sm:pb-40">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-tight text-secondary-dark mb-6" data-aos="fade-up">
                     Lleva tu Negocio al Siguiente Nivel con <span class="text-primary-blue">ClickNeta</span>
@@ -80,7 +108,8 @@
                     Somos tu socio estratégico para el mundo digital. Desarrollamos soluciones web y estrategias de marketing que generan resultados reales.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4" data-aos="fade-up" data-aos-delay="200">
-                    <a href="#servicios" class="bg-primary-blue text-white text-lg font-semibold py-3 px-8 rounded-xl shadow-lg hover:bg-green-700 transition duration-300 transform hover:scale-105">
+                    <!-- Primary CTA Button with Continuous Pulse Animation -->
+                    <a href="#servicios" class="bg-primary-blue text-white text-lg font-semibold py-3 px-8 rounded-xl shadow-lg hover:bg-green-700 transition duration-300 transform hover:scale-105 cta-pulse">
                         Ver Servicios
                     </a>
                     <a href="#contacto" class="bg-white text-primary-blue border-2 border-primary-blue text-lg font-semibold py-3 px-8 rounded-xl shadow-lg hover:bg-primary-blue hover:text-white transition duration-300 transform hover:scale-105">
@@ -99,9 +128,9 @@
                 </p>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                    <!-- Tarjeta de Servicio 1: Desarrollo Web -->
-                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-primary-blue" data-aos="zoom-in-up" data-aos-delay="0">
-                        <div class="text-primary-blue mb-4">
+                    <!-- Tarjeta de Servicio 1: Desarrollo Web (Enhanced Hover) -->
+                    <div class="group bg-gray-50 p-8 rounded-xl shadow-lg border-t-4 border-primary-blue transition duration-500 transform hover:-translate-y-2 hover:shadow-2xl" data-aos="zoom-in-up" data-aos-delay="0">
+                        <div class="text-primary-blue mb-4 transition duration-500 group-hover:scale-110">
                             <!-- Icono Placeholder (Diseño Web/Computadora) -->
                             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1l-.75-3M3 17h18M6 17h12"></path></svg>
                         </div>
@@ -111,9 +140,9 @@
                         </p>
                     </div>
 
-                    <!-- Tarjeta de Servicio 2: Marketing Digital -->
-                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-primary-blue" data-aos="zoom-in-up" data-aos-delay="150">
-                        <div class="text-primary-blue mb-4">
+                    <!-- Tarjeta de Servicio 2: Marketing Digital (Enhanced Hover) -->
+                    <div class="group bg-gray-50 p-8 rounded-xl shadow-lg border-t-4 border-primary-blue transition duration-500 transform hover:-translate-y-2 hover:shadow-2xl" data-aos="zoom-in-up" data-aos-delay="150">
+                        <div class="text-primary-blue mb-4 transition duration-500 group-hover:scale-110">
                             <!-- Icono Placeholder (Marketing/Gráfico) -->
                             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8"></path></svg>
                         </div>
@@ -123,9 +152,9 @@
                         </p>
                     </div>
 
-                    <!-- Tarjeta de Servicio 3: Consultoría IT -->
-                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-primary-blue" data-aos="zoom-in-up" data-aos-delay="300">
-                        <div class="text-primary-blue mb-4">
+                    <!-- Tarjeta de Servicio 3: Consultoría IT (Enhanced Hover) -->
+                    <div class="group bg-gray-50 p-8 rounded-xl shadow-lg border-t-4 border-primary-blue transition duration-500 transform hover:-translate-y-2 hover:shadow-2xl" data-aos="zoom-in-up" data-aos-delay="300">
+                        <div class="text-primary-blue mb-4 transition duration-500 group-hover:scale-110">
                             <!-- Icono Placeholder (Consultoría/Foco) -->
                             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.142a2.44 2.44 0 010 3.454L14.454 18l-4.142-4.142A2.44 2.44 0 016.316 12l-4.142-4.142a2.44 2.44 0 010-3.454l4.142-4.142a2.44 2.44 0 013.454 0L12 6.316l4.142 4.142a2.44 2.44 0 013.454 0z"></path></svg>
                         </div>
@@ -141,7 +170,6 @@
         <!-- Sección de Nosotros (About) -->
         <section id="nosotros" class="py-20 sm:py-32 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <!-- Se elimina el contenedor flex y la imagen para que el texto ocupe el ancho completo -->
                 <div class="max-w-3xl mx-auto">
                     <div class="text-center md:text-left">
                         <h2 class="text-4xl font-bold text-secondary-dark mb-6" data-aos="fade-right">¿Quiénes Somos en ClickNeta?</h2>
@@ -171,7 +199,7 @@
         <section id="contacto" class="py-20 sm:py-32 bg-white">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center 
                         p-10 rounded-xl shadow-2xl border-t-4 border-primary-blue 
-                        transition duration-500 transform hover:scale-[1.01]" 
+                        transition duration-500 transform hover:scale-[1.01] hover:shadow-primary-blue/30" 
                         data-aos="flip-up" data-aos-duration="1000">
                 
                 <h2 class="text-4xl font-bold text-secondary-dark mb-4">Conversemos sobre tu Proyecto</h2>
